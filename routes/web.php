@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\checkAdminOrUser;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('test');
+// });
+
 Route::get('/', function () {
-    return view('test');
+    return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home/admin', [App\Http\Controllers\Auth\HomeController::class, 'index'])->name('admin.home')->middleware('isAdmin');
+Route::get('/home/user/test', [App\Http\Controllers\HomeController::class, 'index2']);
+
+Route::get('/check', function () {
+})->middleware(checkAdminOrUser::class);
+
+Route::get('/home/user', [App\Http\Controllers\HomeController::class, 'index'])->name('user.home')->middleware('isUser');
+
