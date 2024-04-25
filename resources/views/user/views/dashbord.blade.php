@@ -1,11 +1,11 @@
-@extends('layouts.admin')
+@extends('layouts.user')
 
 @section('title')
-    test page title
+    لوحة تحكم المستخدم
 @endsection
 
 @section('contentHeader')
-    this is content header
+لوحة تحكم المستخدم
 @endsection
 
 @section("contentHeaderLink")
@@ -17,5 +17,6 @@
 @endsection
 
 @section('content')
-    dd
+    لقد تم تسجيل دخولك كمستخدم !!
+    
 @endsection

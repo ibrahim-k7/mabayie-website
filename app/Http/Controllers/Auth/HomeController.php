@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.views.home');
+        return view('admin.views.dashbord');
     }
 
 
