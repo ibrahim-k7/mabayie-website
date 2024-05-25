@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VehicleSalesContractsController;
 use App\Http\Middleware\checkAdminOrUser;
 use Illuminate\Support\Facades\Route;
 
@@ -34,4 +35,11 @@ Route::get('/check', function () {
 })->middleware(checkAdminOrUser::class);
 
 Route::get('/home/user', [App\Http\Controllers\HomeController::class, 'index'])->name('user.home')->middleware('isUser');
+
+    //product catalogue
+    Route::controller(VehicleSalesContractsController::class)->group(
+        function () {
+            Route::get('/Show/SalesContracts', 'index')->name('user.VehicleSalesContracts.index');
+        }
+    );
 
